@@ -1,14 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ls.h                                            :+:      :+:    :+:   */
+/*   ft_ls.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sinkosi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/09 14:33:39 by sinkosi           #+#    #+#             */
-/*   Updated: 2019/07/09 14:33:41 by sinkosi          ###   ########.fr       */
+/*   Created: 2019/07/29 15:25:56 by sinkosi           #+#    #+#             */
+/*   Updated: 2019/07/29 15:26:46 by sinkosi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* This is the primary header file as required for future use in the Unix module.*/
-#include "./libft/libft.h"
+#include "../includes/ft_ls.h"
