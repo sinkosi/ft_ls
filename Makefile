@@ -13,7 +13,7 @@
 #################################
 #	NAME			#
 #################################
-NAME	= libftprintf.a
+NAME	= libftls.a
 
 #########################
 #	COLOURS		#
@@ -55,43 +55,14 @@ FLAGS		= -Wall -Werror -Wextra
 #	HEADERS		#
 #########################
 
-FTPRINTF_H	= -I ./includes/
+FT_LS_H	= -I ./includes/
 LIBFT_H		= -I ./$(LIBFT_PATH)/includes/
 
 #################################
 #	FILES			#
 #################################
-SRCS_NAME	= ft_convert.c		\
-		  ft_error.c			\
-		  ft_flag_check.c		\
-		  ft_flag_hash.c		\
-		  ft_flag_plus.c		\
-		  ft_flag_precision.c	\
-		  ft_flag_reset.c		\
-		  ft_flag_space.c		\
-		  ft_flag_set.c			\
-		  ft_flag_size.c		\
-		  ft_flag_width.c		\
-		  ft_handler_c_char.c	\
-		  ft_handler_d_int.c	\
-		  ft_handler_o_octal.c	\
-		  ft_handler_p_pointer.c\
-		  ft_handler_s_str.c	\
-		  ft_handler_u_unsigned_int.c	\
-		  ft_handler_x_hexadecimal.c	\
-		  ft_handler_xc_hexadecimal.c	\
-		  ft_handler_convert.c			\
-		  ft_print_c_char.c		\
-		  ft_print_d_int.c		\
-		  ft_printf.c			\
-		  ft_print_mod.c		\
-		  ft_print_o_octal.c	\
-		  ft_print_out.c		\
-		  ft_print_p_pointer.c	\
-		  ft_print_s_str.c		\
-		  ft_print_u_unsigned_int.c	\
-		  ft_print_x_hexadecimal.c	\
-		  ft_print_xc_hexadecimal.c	
+SRCS_NAME	=	ft_flags.c	\
+				ft_isdir.c	
 
 OBJ		= $(addprefix $(OBJ_PATH)/, $(SRCS_NAME:%.c=%.o))
 ################################################
@@ -113,6 +84,7 @@ $(NAME):	$(OBJ)
 		@ar rc $(NAME) $(OBJ) $(LIBFT_PATH)/obj/*.o
 		@ranlib $(NAME)
 		$(OUTPUT)
+		@clang -Wall -Wextra -Werror srcs/ft_ls.c -o ft_ls
 
 $(OBJ_PATH)/%.o: $(SRCS_PATH)/%.c
 	@mkdir	-p $(OBJ_PATH)

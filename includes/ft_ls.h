@@ -13,7 +13,7 @@
 /* This is the primary header file as required for future use in the Unix module.*/
 #ifndef FT_LS_H
 # define FT_LS_H
-# include "./libft/libft.h"
+# include "../libft/includes/libft.h"
 
 # include <dirent.h>
 # include <sys/stat.h>
@@ -58,7 +58,8 @@
 
 typedef struct	s_ls_flags
 {
-
+    int flag_a;
+}           t_ls_flags;
 
 
 #endif
