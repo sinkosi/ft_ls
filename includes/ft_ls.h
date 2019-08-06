@@ -6,11 +6,10 @@
 /*   By: sinkosi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/09 14:33:39 by sinkosi           #+#    #+#             */
-/*   Updated: 2019/07/29 15:34:53 by sinkosi          ###   ########.fr       */
+/*   Updated: 2019/08/06 15:39:59 by sinkosi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* This is the primary header file as required for future use in the Unix module.*/
 #ifndef FT_LS_H
 # define FT_LS_H
 # include "../libft/includes/libft.h"
@@ -43,7 +42,8 @@
 
 /*
 **	Flags:
-**	-A - Shows all files (including hidden files), but doesn't show the "." and ".." directories. (Bonus)
+**	-A - Shows all files (including hidden files), but doesn't show the "."
+**		and ".." directories. (Bonus)
 **	-G - Shows normal files, but adds colour. (Bonus) **
 **	-R - Shows all files recursively.
 **	-a - Shows all files including "." and "..".
@@ -55,7 +55,6 @@
 **	-t - Sorts files according to time.
 */
 
-
 typedef struct	s_ls_flags
 {
 	int flag_l;
@@ -63,13 +62,13 @@ typedef struct	s_ls_flags
 	int flag_a;
 	int flag_r;
 	int flag_t;
-}           t_ls_flags;
+}				t_ls_flags;
 
 /*
 ** FT_FLAG_INIT - This function takes the struct ft_ls as arguments and
 **		initialises all its members	to zero.
 */
-void    ft_flag_init(t_ls_flags *ft_ls);
+void			ft_flag_init(t_ls_flags *ft_ls);
 
 /*
 ** FT_FLAG_SET - This function takes the struct ft_ls and a char as argument.
@@ -77,8 +76,19 @@ void    ft_flag_init(t_ls_flags *ft_ls);
 **		the appropriate flag on. Turning a flag on, would be to change the
 **		value from 0 to 1.
 */
-void    ft_flag_set(t_ls_flags *ft_ls, char c);
+void			ft_flag_set(t_ls_flags *ft_ls, char c);
 
-void		ft_dir_current(int argc, char **argv, struct dirent *attr);
+/*
+** FT
+*/
+void			ft_dir_current(int argc, char **argv, struct dirent *attr);
+
+/*
+** ************************************************************************	*
+**									LS_PRINTERS								*
+** ************************************************************************	*
+*/
+
+void			ft_ls_p_groupname(char *str);
 
 #endif
