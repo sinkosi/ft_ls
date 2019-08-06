@@ -61,8 +61,11 @@ LIBFT_H		= -I ./$(LIBFT_PATH)/includes/
 #################################
 #	FILES			#
 #################################
-SRCS_NAME	=	ft_flags.c	\
-				ft_isdir.c	
+SRCS_NAME	=	ft_flags.c		\
+				ft_isdir.c		\
+				ft_flag_init.c	\
+				ft_flag_set.c	\
+				ft_dir_current.c 
 
 OBJ		= $(addprefix $(OBJ_PATH)/, $(SRCS_NAME:%.c=%.o))
 ################################################

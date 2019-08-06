@@ -14,20 +14,23 @@
 
 int main(int argc, char **argv)
 {
-    DIR		*path;
+	//int	i;
+	DIR		*path;
+	char *str;
 	struct dirent	*attr;
-
 	if (argc <= 1)
 	{
-		return (0);
+		str = ".";
 	}
-	path = opendir(argv[1]);
-
+	else
+		str = argv[1];
+	path = opendir(str);
 	if (path == NULL)
 	{
 		printf("YOU SUCK MAN!");
 		return (0);
 	}
+	//ft_dir_current(argc, argv, attr);
 	while ((attr = readdir(path)) != NULL)
 	{
 		printf("%s\t", attr->d_name);
