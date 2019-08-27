@@ -6,7 +6,7 @@
 /*   By: sinkosi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/09 14:33:39 by sinkosi           #+#    #+#             */
-/*   Updated: 2019/08/27 15:37:26 by sinkosi          ###   ########.fr       */
+/*   Updated: 2019/08/27 16:03:13 by sinkosi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ typedef struct		s_ls_flags
 	int				flag_recursive;
 	int				flag_a;
 	int				flag_l;
-	int 			flag_r;
+	int				flag_r;
 	int				flag_t;
 	char			*path;
 	DIR				*dir_path;
@@ -82,7 +82,7 @@ typedef struct		s_dir
 ** FT_FLAG_INIT - This function takes the struct ft_ls as arguments and
 **		initialises all its members	to zero.
 */
-void			ft_flag_init(t_ls_flags *ft_ls);
+void				ft_flag_init(t_ls_flags *ft_ls);
 
 /*
 ** FT_FLAG_SET - This function takes the struct ft_ls and a char as argument.
@@ -91,12 +91,12 @@ void			ft_flag_init(t_ls_flags *ft_ls);
 **		value from 0 to 1. If an invalid char is provided then it will output
 **		that an error has occured and the flag parsed is invalid.
 */
-void			ft_flag_set(t_ls_flags *ft_ls, char c);
+void				ft_flag_set(t_ls_flags *ft_ls, char c);
 
 /*
 ** FT_D
 */
-void			ft_dir_current(int argc, char **argv, struct dirent *attr);
+void				ft_dir_current(int argc, char **argv, struct dirent *attr);
 
 /*
 ** ************************************************************************	*
@@ -104,7 +104,8 @@ void			ft_dir_current(int argc, char **argv, struct dirent *attr);
 ** ************************************************************************	*
 */
 
-void			ft_ls_p_permission(t_ls_flags *ft_ls, struct stat ft_ls_stat);
-void			ft_ls_p_groupname(char *str);
+void				ft_ls_p_permission(t_ls_flags *ft_ls,
+		struct stat ft_ls_stat);
+void				ft_ls_p_groupname(char *str);
 
 #endif

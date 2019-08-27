@@ -6,7 +6,7 @@
 /*   By: sinkosi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 15:38:16 by sinkosi           #+#    #+#             */
-/*   Updated: 2019/08/27 15:38:18 by sinkosi          ###   ########.fr       */
+/*   Updated: 2019/08/27 16:05:51 by sinkosi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_flags(int argc, char **argv)
 {
-	int		i;
+	int			i;
 	t_ls_flags	*my_ls;
 
 	if (argc <= 1)

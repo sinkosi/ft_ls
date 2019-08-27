@@ -6,13 +6,13 @@
 /*   By: sinkosi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 10:54:44 by sinkosi           #+#    #+#             */
-/*   Updated: 2019/08/27 10:58:58 by sinkosi          ###   ########.fr       */
+/*   Updated: 2019/08/27 16:08:10 by sinkosi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_ls.h"
 
-void    ft_flag_set(t_ls_flags *ft_ls, char c)
+void	ft_flag_set(t_ls_flags *ft_ls, char c)
 {
 	if (c == 'l')
 		ft_ls->flag_l = 1;
