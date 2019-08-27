@@ -6,7 +6,7 @@
 /*   By: sinkosi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/09 14:33:39 by sinkosi           #+#    #+#             */
-/*   Updated: 2019/08/27 11:54:54 by sinkosi          ###   ########.fr       */
+/*   Updated: 2019/08/27 15:37:26 by sinkosi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ typedef struct		s_ls_flags
 	char			*path;
 	DIR				*dir_path;
 	struct dirent	*dirent_dir;
-	struct stat		ft_ls_stat
+	struct stat		ft_ls_stat;
 }					t_ls_flags;
 
 typedef struct		s_dir
