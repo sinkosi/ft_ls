@@ -6,7 +6,7 @@
 /*   By: sinkosi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/09 14:33:39 by sinkosi           #+#    #+#             */
-/*   Updated: 2019/08/06 15:39:59 by sinkosi          ###   ########.fr       */
+/*   Updated: 2019/08/27 11:54:54 by sinkosi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # include <errno.h>
 # include <time.h>
 
+# define LS_FLAGS "Ralrt"
 # define LONG 1
 # define ALL 2
 # define RECUR 4
@@ -55,14 +56,27 @@
 **	-t - Sorts files according to time.
 */
 
-typedef struct	s_ls_flags
+typedef struct		s_ls_flags
 {
-	int flag_l;
-	int flag_recursive;
-	int flag_a;
-	int flag_r;
-	int flag_t;
-}				t_ls_flags;
+	int				flag_recursive;
+	int				flag_a;
+	int				flag_l;
+	int 			flag_r;
+	int				flag_t;
+	char			*path;
+	DIR				*dir_path;
+	struct dirent	*dirent_dir;
+	struct stat		ft_ls_stat
+}					t_ls_flags;
+
+typedef struct		s_dir
+{
+	char			*dir;
+	char			*path;
+	time_t			*ft_time;
+	int				*ft_is_dir;
+	struct s_dir	*next;
+}					t_dir;
 
 /*
 ** FT_FLAG_INIT - This function takes the struct ft_ls as arguments and
@@ -74,12 +88,13 @@ void			ft_flag_init(t_ls_flags *ft_ls);
 ** FT_FLAG_SET - This function takes the struct ft_ls and a char as argument.
 **		It then compares the char to see if it is valid input. It then turns
 **		the appropriate flag on. Turning a flag on, would be to change the
-**		value from 0 to 1.
+**		value from 0 to 1. If an invalid char is provided then it will output
+**		that an error has occured and the flag parsed is invalid.
 */
 void			ft_flag_set(t_ls_flags *ft_ls, char c);
 
 /*
-** FT
+** FT_D
 */
 void			ft_dir_current(int argc, char **argv, struct dirent *attr);
 
@@ -89,6 +104,7 @@ void			ft_dir_current(int argc, char **argv, struct dirent *attr);
 ** ************************************************************************	*
 */
 
+void			ft_ls_p_permission(t_ls_flags *ft_ls, struct stat ft_ls_stat);
 void			ft_ls_p_groupname(char *str);
 
 #endif
