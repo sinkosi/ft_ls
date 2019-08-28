@@ -27,6 +27,8 @@
 # include <time.h>
 
 # define LS_FLAGS "Ralrt"
+# define TRUE 1
+# define FALSE 0
 # define LONG 1
 # define ALL 2
 # define RECUR 4
@@ -41,6 +43,14 @@
 # define ONE 2048
 # define ERROR 4096
 
+typedef struct		s_dir
+{
+	char			*dir;
+	char			*path;
+	time_t			*ft_time;
+	int				*ft_is_dir;
+	struct s_dir	*next;
+}					t_dir;
 /*
 **	Flags:
 **	-A - Shows all files (including hidden files), but doesn't show the "."
@@ -67,17 +77,14 @@ typedef struct		s_ls_flags
 	DIR				*dir_path;
 	struct dirent	*dirent_dir;
 	struct stat		ft_ls_stat;
+	t_dir			*dir_list;
 }					t_ls_flags;
 
-typedef struct		s_dir
-{
-	char			*dir;
-	char			*path;
-	time_t			*ft_time;
-	int				*ft_is_dir;
-	struct s_dir	*next;
-}					t_dir;
-
+/*
+** ************************************************************************	*
+**									LS_HANDLERS								*
+** ************************************************************************	*
+*/
 /*
 ** FT_FLAG_INIT - This function takes the struct ft_ls as arguments and
 **		initialises all its members	to zero.
@@ -93,6 +100,10 @@ void				ft_flag_init(t_ls_flags *ft_ls);
 */
 void				ft_flag_set(t_ls_flags *ft_ls, char c);
 
+void	ft_flag_recursive(t_dir *list, t_ls_flags *my_ls);
+
+char	*ft_get_user(struct stat fstat);
+
 /*
 ** FT_D
 */
@@ -104,8 +115,33 @@ void				ft_dir_current(int argc, char **argv, struct dirent *attr);
 ** ************************************************************************	*
 */
 
-void				ft_ls_p_permission(t_ls_flags *ft_ls,
+void				ft_ls_p_permission(t_dir *ft_ls,
 		struct stat ft_ls_stat);
 void				ft_ls_p_groupname(char *str);
+
+void	ft_ls_p_long_list(t_dir *list);
+
+/*
+** ************************************************************************	*
+**									LS_SORTERS								*
+** ************************************************************************	*
+*/
+void	ft_sort_list(t_dir **head, int (*cmp)(t_dir, t_dir), int done);
+
+void				ft_rev_list(t_dir **head_ref);
+
+int		ft_time_cmp(t_dir dir1, t_dir dir2);
+
+int					ft_dir_strcmp(t_dir dir1, t_dir dir2);
+
+void	do_ls(char *dir, t_ls_flags *e);
+
+void	ft_get_time(struct stat fstat, t_dir *temp);
+
+void	ft_ls_print(t_dir *my_ls, t_ls_flags *my_ls_flags, char *path);
+
+int		add_args(t_ls_flags *e, char *arg);
+
+void	ft_ls_run_op(t_ls_flags *my_ls, char *path);
 
 #endif

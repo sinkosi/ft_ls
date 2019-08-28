@@ -61,11 +61,20 @@ LIBFT_H		= -I ./$(LIBFT_PATH)/includes/
 #################################
 #	FILES			#
 #################################
-SRCS_NAME	=	ft_flags.c		\
-				ft_isdir.c		\
-				ft_flag_init.c	\
-				ft_flag_set.c	\
-				ft_dir_current.c 
+SRCS_NAME	=	ft_ls.c				\
+				ft_flag_init.c		\
+				ft_flag_recursive.c	\
+				ft_flag_set.c		\
+				ft_get_user.c		\
+				ft_isdir.c			\
+				ft_list_run.c		\
+				ft_ls_p_long_list.c	\
+				ft_ls_p_permission.c\
+				ft_ls_print.c		\
+				ft_ls_run_op.c			\
+				ft_read_time.c		\
+				ft_rev_list.c		\
+				ft_sort_list.c
 
 OBJ		= $(addprefix $(OBJ_PATH)/, $(SRCS_NAME:%.c=%.o))
 ################################################

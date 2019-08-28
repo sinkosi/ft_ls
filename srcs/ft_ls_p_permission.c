@@ -12,6 +12,19 @@
 
 #include "../includes/ft_ls.h"
 
-void	ft_ls_p_permission(t_ls_flags *ft_ls, struct stat ft_ls_stat)
+void	ft_ls_p_permission(t_dir *my_ls, struct stat ft_ls_stat)
 {
-	if (ft_ls->is_dir)
+	if (my_ls->ft_is_dir)
+		ft_putchar('d');
+	else
+		ft_putchar((S_ISLNK(ft_ls_stat.st_mode)) ? 'l' : '-');
+	ft_putchar((ft_ls_stat.st_mode & S_IRUSR) ? 'r' : '-');
+	ft_putchar((ft_ls_stat.st_mode & S_IWUSR) ? 'w' : '-');
+	ft_putchar((ft_ls_stat.st_mode & S_IXUSR) ? 'x' : '-');
+	ft_putchar((ft_ls_stat.st_mode & S_IWGRP) ? 'w' : '-');
+	ft_putchar((ft_ls_stat.st_mode & S_IWGRP) ? 'x' : '-');
+	ft_putchar((ft_ls_stat.st_mode & S_IROTH) ? 'r' : '-');
+	ft_putchar((ft_ls_stat.st_mode & S_IWOTH) ? 'w' : '-');
+	ft_putchar((ft_ls_stat.st_mode & S_IXOTH) ? 'x' : '-');
+	ft_putstr(" ");
+}
