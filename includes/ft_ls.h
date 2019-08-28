@@ -18,11 +18,11 @@
 # include <sys/stat.h>
 # include <stdio.h>
 # include <sys/types.h>
-# include <sys/acl.h>
+//# include <sys/acl.h>
 # include <sys/xattr.h>
 # include <pwd.h>
 # include <grp.h>
-# include <uuid/uuid.h>
+//# include <uuid/uuid.h>
 # include <errno.h>
 # include <time.h>
 
