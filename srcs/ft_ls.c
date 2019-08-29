@@ -6,7 +6,7 @@
 /*   By: sinkosi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/29 15:25:56 by sinkosi           #+#    #+#             */
-/*   Updated: 2019/08/27 16:05:21 by sinkosi          ###   ########.fr       */
+/*   Updated: 2019/08/29 15:30:32 by sinkosi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main(int argc, char **argv)
 	}
 	return (0);
 }
-
+/*
 int main(int argc, char **argv)
 {
     int             i;
@@ -65,4 +65,4 @@ int main(int argc, char **argv)
 			do_list(&e);
         ft_ls_run_op(&e);
 		return (0);
-}
+}*/
