@@ -12,7 +12,7 @@
 
 #include "../includes/ft_ls.h"
 
-int	main(int argc, char **argv)
+/*int	main(int argc, char **argv)
 {
 	DIR				*path;
 	char			*str;
@@ -36,8 +36,8 @@ int	main(int argc, char **argv)
 		printf("%s\t", attr->d_name);
 	}
 	return (0);
-}
-/*
+}*/
+
 int main(int argc, char **argv)
 {
     int             i;
@@ -63,6 +63,6 @@ int main(int argc, char **argv)
         }
         if (e.dir_list == NULL)
 			do_list(&e);
-        ft_ls_run_op(&e);
+        ft_ls(&e);
 		return (0);
-}*/
+}

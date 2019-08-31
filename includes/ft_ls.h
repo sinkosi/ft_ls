@@ -144,4 +144,12 @@ int		add_args(t_ls_flags *e, char *arg);
 
 void	ft_ls_run_op(t_ls_flags *my_ls, char *path);
 
+char	*ft_strchrcat(char *dst, const char src);
+
+void	do_list(t_ls_flags *my_ls);
+
+void	ft_ls(t_ls_flags *my_ls);
+
+void	ft_dir_current(int argc, char **argv, struct dirent *attr);
+
 #endif

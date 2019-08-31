@@ -61,10 +61,15 @@ LIBFT_H		= -I ./$(LIBFT_PATH)/includes/
 #################################
 #	FILES			#
 #################################
-SRCS_NAME	=	ft_ls.c				\
+SRCS_NAME	=	do_ls.c				\
+				ft_dir_current.c	\
+				ft_dir_strcmp.c		\
+				ft_flag_args.c		\
 				ft_flag_init.c		\
 				ft_flag_recursive.c	\
 				ft_flag_set.c		\
+				ft_flags.c			\
+				ft_get_time.c		\
 				ft_get_user.c		\
 				ft_isdir.c			\
 				ft_list_run.c		\
@@ -74,7 +79,9 @@ SRCS_NAME	=	ft_ls.c				\
 				ft_ls_run_op.c			\
 				ft_read_time.c		\
 				ft_rev_list.c		\
-				ft_sort_list.c
+				ft_sort_list.c		\
+				ft_strchrcat.c		\
+				ft_time_cmp.c		\
 
 OBJ		= $(addprefix $(OBJ_PATH)/, $(SRCS_NAME:%.c=%.o))
 ################################################
@@ -96,7 +103,7 @@ $(NAME):	$(OBJ)
 		@ar rc $(NAME) $(OBJ) $(LIBFT_PATH)/obj/*.o
 		@ranlib $(NAME)
 		$(OUTPUT)
-		@clang -Wall -Wextra -Werror srcs/ft_ls.c -o ft_ls
+		@clang -Wall -Wextra -Werror srcs/ft_ls.c libftls.a -o ft_ls
 
 $(OBJ_PATH)/%.o: $(SRCS_PATH)/%.c
 	@mkdir	-p $(OBJ_PATH)

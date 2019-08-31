@@ -24,7 +24,7 @@ void	do_ls(char *dir, t_ls_flags *e)
 				list = temp;
 			}
 		}
-		sort_list(&list, ft_dir_strcmp, 0);
-		ft_print_ls(list, e, dir);
+		ft_sort_list(&list, ft_dir_strcmp, 0);
+		ft_ls_print(list, e, dir);
 	}
 }
