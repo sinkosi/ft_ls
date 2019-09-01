@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_ls_run_op.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sinkosi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/09/01 13:20:31 by sinkosi           #+#    #+#             */
+/*   Updated: 2019/09/01 14:19:38 by sinkosi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/ft_ls.h"
 
 void	ft_ls_run_op(t_ls_flags *my_ls, char *path)
@@ -19,7 +31,7 @@ void	ft_ls_run_op(t_ls_flags *my_ls, char *path)
 				lstat(temp->path, &my_ls->ft_ls_stat);
 				temp->ft_time = &my_ls->ft_ls_stat.st_mtime;
 				if (S_ISDIR(my_ls->ft_ls_stat.st_mode) == 1)
-					*temp->ft_is_dir = 1;
+					temp->ft_is_dir = 1;
 				temp->next = list;
 				list = temp;
 			}

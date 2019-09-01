@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_get_time.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sinkosi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/09/01 13:14:24 by sinkosi           #+#    #+#             */
+/*   Updated: 2019/09/01 14:12:52 by sinkosi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/ft_ls.h"
 
 void	ft_get_time(struct stat fstat, t_dir *temp)
@@ -8,7 +20,7 @@ void	ft_get_time(struct stat fstat, t_dir *temp)
 	size_t	len;
 
 	(void)fstat;
-	str = ctime(&temp->ft_time);
+	str = ctime(temp->ft_time);
 	ft_memcpy(t_fmt, &str[4], 12);
 	t_fmt[12] = '\0';
 	ft_putstr(t_fmt);
@@ -21,4 +33,3 @@ void	ft_get_time(struct stat fstat, t_dir *temp)
 		ft_putstr(buf);
 	}
 }
-

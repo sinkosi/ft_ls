@@ -6,7 +6,7 @@
 #    By: sinkosi <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/28 10:05:49 by sinkosi           #+#    #+#              #
-#    Updated: 2019/07/28 12:20:23 by sinkosi          ###   ########.fr        #
+#    Updated: 2019/09/01 14:02:51 by sinkosi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,6 @@ LIBFT_H		= -I ./$(LIBFT_PATH)/includes/
 #	FILES			#
 #################################
 SRCS_NAME	=	do_ls.c				\
-				ft_dir_current.c	\
 				ft_dir_strcmp.c		\
 				ft_flag_args.c		\
 				ft_flag_init.c		\
@@ -82,6 +81,8 @@ SRCS_NAME	=	do_ls.c				\
 				ft_sort_list.c		\
 				ft_strchrcat.c		\
 				ft_time_cmp.c		\
+	#ft_dir_current.c	\
+
 
 OBJ		= $(addprefix $(OBJ_PATH)/, $(SRCS_NAME:%.c=%.o))
 ################################################

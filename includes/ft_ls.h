@@ -6,7 +6,7 @@
 /*   By: sinkosi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/09 14:33:39 by sinkosi           #+#    #+#             */
-/*   Updated: 2019/08/27 16:03:13 by sinkosi          ###   ########.fr       */
+/*   Updated: 2019/09/01 13:11:16 by sinkosi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,37 +18,22 @@
 # include <sys/stat.h>
 # include <stdio.h>
 # include <sys/types.h>
-//# include <sys/acl.h>
+# include <sys/acl.h>
 # include <sys/xattr.h>
 # include <pwd.h>
 # include <grp.h>
-//# include <uuid/uuid.h>
+# include <uuid/uuid.h>
 # include <errno.h>
 # include <time.h>
 
 # define LS_FLAGS "Ralrt"
-# define TRUE 1
-# define FALSE 0
-# define LONG 1
-# define ALL 2
-# define RECUR 4
-# define REVE 8
-# define TIM 16
-# define DOT 32
-# define NOSOR 64
-# define PUT 128
-# define COLO 256
-# define NORM 512
-# define UGNOM 1024
-# define ONE 2048
-# define ERROR 4096
 
 typedef struct		s_dir
 {
 	char			*dir;
 	char			*path;
 	time_t			*ft_time;
-	int				*ft_is_dir;
+	int				ft_is_dir;
 	struct s_dir	*next;
 }					t_dir;
 /*
@@ -100,9 +85,9 @@ void				ft_flag_init(t_ls_flags *ft_ls);
 */
 void				ft_flag_set(t_ls_flags *ft_ls, char c);
 
-void	ft_flag_recursive(t_dir *list, t_ls_flags *my_ls);
+void				ft_flag_recursive(t_dir *list, t_ls_flags *my_ls);
 
-char	*ft_get_user(struct stat fstat);
+char				*ft_get_user(struct stat fstat);
 
 /*
 ** FT_D
@@ -119,37 +104,40 @@ void				ft_ls_p_permission(t_dir *ft_ls,
 		struct stat ft_ls_stat);
 void				ft_ls_p_groupname(char *str);
 
-void	ft_ls_p_long_list(t_dir *list);
+void				ft_ls_p_long_list(t_dir *list);
 
 /*
 ** ************************************************************************	*
 **									LS_SORTERS								*
 ** ************************************************************************	*
 */
-void	ft_sort_list(t_dir **head, int (*cmp)(t_dir, t_dir), int done);
+void				ft_sort_list(t_dir **head, int (*cmp)(t_dir, t_dir),
+		int done);
 
 void				ft_rev_list(t_dir **head_ref);
 
-int		ft_time_cmp(t_dir dir1, t_dir dir2);
+int					ft_time_cmp(t_dir dir1, t_dir dir2);
 
 int					ft_dir_strcmp(t_dir dir1, t_dir dir2);
 
-void	do_ls(char *dir, t_ls_flags *e);
+void				do_ls(char *dir, t_ls_flags *e);
 
-void	ft_get_time(struct stat fstat, t_dir *temp);
+void				ft_get_time(struct stat fstat, t_dir *temp);
 
-void	ft_ls_print(t_dir *my_ls, t_ls_flags *my_ls_flags, char *path);
+void				ft_ls_print(t_dir *my_ls, t_ls_flags *my_ls_flags,
+		char *path);
 
-int		add_args(t_ls_flags *e, char *arg);
+int					add_args(t_ls_flags *e, char *arg);
 
-void	ft_ls_run_op(t_ls_flags *my_ls, char *path);
+void				ft_ls_run_op(t_ls_flags *my_ls, char *path);
 
-char	*ft_strchrcat(char *dst, const char src);
+char				*ft_strchrcat(char *dst, const char src);
 
-void	do_list(t_ls_flags *my_ls);
+void				do_list(t_ls_flags *my_ls);
 
-void	ft_ls(t_ls_flags *my_ls);
+void				ft_ls(t_ls_flags *my_ls);
 
-void	ft_dir_current(int argc, char **argv, struct dirent *attr);
+void				ft_dir_current(int argc, char **argv,
+		struct dirent *attr);
 
 #endif

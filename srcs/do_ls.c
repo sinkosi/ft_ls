@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   do_ls.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sinkosi <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/09/01 13:12:27 by sinkosi           #+#    #+#             */
+/*   Updated: 2019/09/01 14:18:41 by sinkosi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/ft_ls.h"
 
 void	do_ls(char *dir, t_ls_flags *e)
@@ -17,7 +29,7 @@ void	do_ls(char *dir, t_ls_flags *e)
 				temp->path = ft_strjoin(ft_strjoin(dir, "/"),
 						e->dirent_dir->d_name);
 				lstat(temp->path, &e->ft_ls_stat);
-				temp->ft_time = e->ft_ls_stat.st_mtime;
+				temp->ft_time = &e->ft_ls_stat.st_mtime;
 				if (S_ISDIR(e->ft_ls_stat.st_mode) == 1)
 					temp->ft_is_dir = 1;
 				temp->next = list;
