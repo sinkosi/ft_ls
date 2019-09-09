@@ -24,6 +24,7 @@ void	ft_get_time(struct stat fstat, t_dir *temp)
 	ft_memcpy(t_fmt, &str[4], 12);
 	t_fmt[12] = '\0';
 	ft_putstr(t_fmt);
+	ft_putchar(' ');
 	ft_putstr(temp->dir);
 	if (S_ISLNK(fstat.st_mode))
 	{

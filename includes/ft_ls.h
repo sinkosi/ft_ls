@@ -18,11 +18,11 @@
 # include <sys/stat.h>
 # include <stdio.h>
 # include <sys/types.h>
-# include <sys/acl.h>
+//# include <sys/acl.h>
 # include <sys/xattr.h>
 # include <pwd.h>
 # include <grp.h>
-# include <uuid/uuid.h>
+//# include <uuid/uuid.h>
 # include <errno.h>
 # include <time.h>
 
@@ -140,4 +140,5 @@ void				ft_ls(t_ls_flags *my_ls);
 void				ft_dir_current(int argc, char **argv,
 		struct dirent *attr);
 
+size_t  ft_ls_strlen(t_dir *list);//, struct stat ft_stat);s
 #endif

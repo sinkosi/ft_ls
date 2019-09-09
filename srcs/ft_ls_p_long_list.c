@@ -21,6 +21,8 @@ void	ft_ls_p_long_list(t_dir *list)
 	int			i;
 
 	temp = list;
+	i = ft_ls_strlen(temp);
+	printf("%d\n", i);
 	while (temp != NULL)
 	{
 		lstat(temp->path, &fstat);
@@ -28,12 +30,12 @@ void	ft_ls_p_long_list(t_dir *list)
 		ft_putnbr(fstat.st_nlink);
 		ft_putstr(" ");
 		ft_putstr(ft_get_user(fstat));
-		i = 5;
+		//i = 6;
 		bytes = ft_itoa(fstat.st_size);
-		len = ft_strlen(bytes);
-		while (i-- > len)
+		len = i;//ft_strlen(bytes);
+		while (len-- > ft_strlen(bytes))//(i-- > len)
 			ft_putchar(' ');
-		ft_putstr(ft_strjoin(bytes, "  "));
+		ft_putstr(ft_strjoin(bytes, " "));
 		ft_get_time(fstat, temp);
 		temp = temp->next;
 		if (temp != NULL)

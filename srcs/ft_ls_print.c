@@ -15,7 +15,9 @@
 void	ft_ls_print(t_dir *my_ls, t_ls_flags *my_ls_flags, char *path)
 {
 	t_dir	*temp;
+	int		i;
 
+	i = 0;
 	if (my_ls_flags->flag_t == 1)
 		ft_sort_list(&my_ls, ft_time_cmp, 0);
 	if (my_ls_flags->flag_r == 1)
@@ -30,8 +32,11 @@ void	ft_ls_print(t_dir *my_ls, t_ls_flags *my_ls_flags, char *path)
 		while (temp != NULL)
 		{
 			ft_putstr(temp->dir);
+			i++;
 			temp = temp->next;
-			if (temp != NULL)
+			if (temp != NULL && (i % 8 != 0))
+				ft_putstr("  ");
+			else if (temp != NULL && (i % 8 == 0))
 				ft_putchar('\n');
 		}
 	}

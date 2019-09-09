@@ -16,18 +16,32 @@ void	ft_ls_p_permission(t_dir *my_ls, struct stat ft_ls_stat)
 {
 	char	*perm;
 
-	if (my_ls->ft_is_dir)
+	/*if (my_ls->ft_is_dir)
 		perm[0] = ('d');
 	else
 		perm[0] = ((S_ISLNK(ft_ls_stat.st_mode)) ? 'l' : '-');
-	ft_strchrcat(perm, (ft_ls_stat.st_mode & S_IRUSR) ? 'r' : '-');
-	ft_strchrcat(perm, (ft_ls_stat.st_mode & S_IWUSR) ? 'w' : '-');
-	ft_strchrcat(perm, (ft_ls_stat.st_mode & S_IXUSR) ? 'x' : '-');
-	ft_strchrcat(perm, (ft_ls_stat.st_mode & S_IWGRP) ? 'w' : '-');
-	ft_strchrcat(perm, (ft_ls_stat.st_mode & S_IWGRP) ? 'x' : '-');
-	ft_strchrcat(perm, (ft_ls_stat.st_mode & S_IROTH) ? 'r' : '-');
-	ft_strchrcat(perm, (ft_ls_stat.st_mode & S_IWOTH) ? 'w' : '-');
-	ft_strchrcat(perm, (ft_ls_stat.st_mode & S_IXOTH) ? 'x' : '-');
+	ft_strjoin(perm, (ft_ls_stat.st_mode & S_IRUSR) ? "r" : "-");
+	ft_strjoin(perm, (ft_ls_stat.st_mode & S_IWUSR) ? "w" : "-");
+	ft_strjoin(perm, (ft_ls_stat.st_mode & S_IXUSR) ? "x" : "-");
+	ft_strjoin(perm, (ft_ls_stat.st_mode & S_IWGRP) ? "w" : "-");
+	ft_strjoin(perm, (ft_ls_stat.st_mode & S_IWGRP) ? "x" : "-");
+	ft_strjoin(perm, (ft_ls_stat.st_mode & S_IROTH) ? "r" : "-");
+	ft_strjoin(perm, (ft_ls_stat.st_mode & S_IWOTH) ? "w" : "-");
+	ft_strjoin(perm, (ft_ls_stat.st_mode & S_IXOTH) ? "x" : "-");
 	ft_strcat(perm, " ");
-	ft_putstr(perm);
+	ft_putstr(perm);*/
+	if (my_ls->ft_is_dir)
+		ft_putchar('d');
+	else
+		ft_putchar((S_ISLNK(ft_ls_stat.st_mode)) ? 'l' : '-');
+	ft_putchar((ft_ls_stat.st_mode & S_IRUSR) ? 'r' : '-');
+	ft_putchar((ft_ls_stat.st_mode & S_IWUSR) ? 'w' : '-');
+	ft_putchar((ft_ls_stat.st_mode & S_IXUSR) ? 'x' : '-');
+	ft_putchar((ft_ls_stat.st_mode & S_IRGRP) ? 'r' : '-');
+	ft_putchar((ft_ls_stat.st_mode & S_IWGRP) ? 'w' : '-');
+	ft_putchar((ft_ls_stat.st_mode & S_IXGRP) ? 'x' : '-');
+	ft_putchar((ft_ls_stat.st_mode & S_IROTH) ? 'r' : '-');
+	ft_putchar((ft_ls_stat.st_mode & S_IWOTH) ? 'w' : '-');
+	ft_putchar((ft_ls_stat.st_mode & S_IXOTH) ? 'x' : '-');
+	ft_putstr(" ");
 }

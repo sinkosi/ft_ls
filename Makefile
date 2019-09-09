@@ -76,6 +76,7 @@ SRCS_NAME	=	do_ls.c				\
 				ft_ls_p_permission.c\
 				ft_ls_print.c		\
 				ft_ls_run_op.c			\
+				ft_ls_strlen.c		\
 				ft_read_time.c		\
 				ft_rev_list.c		\
 				ft_sort_list.c		\
