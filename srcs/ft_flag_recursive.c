@@ -20,7 +20,7 @@ void	ft_flag_recursive(t_dir *list, t_ls_flags *my_ls)
 	while (temp != NULL)
 	{
 		if (temp->ft_is_dir == 1 && temp->dir[0] != '.')
-			do_ls(temp->path, my_ls);
+			ft_ls_run_op(my_ls, temp->path);
 		temp = temp->next;
 	}
 }

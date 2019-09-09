@@ -26,7 +26,7 @@ void	ft_ls(t_ls_flags *my_ls)
 	temp = my_ls->dir_list;
 	while (temp != NULL)
 	{
-		do_ls(temp->dir, my_ls);
+		ft_ls_run_op(my_ls, temp->dir);
 		temp = temp->next;
 	}
 }

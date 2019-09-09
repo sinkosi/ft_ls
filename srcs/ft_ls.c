@@ -31,7 +31,7 @@ int	main(int argc, char **argv)
 			ft_putstr(argv[i]);
 			ft_putendl(": No such file or directory");
 		}
-		else if (add_args(&e, argv[i]) == 0)
+		else if (ft_flag_set(&e, argv[i]) == 0)
 			return (0);
 		i++;
 	}
