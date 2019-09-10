@@ -63,7 +63,7 @@ int	ft_flag_set(t_ls_flags *ft_ls, char *parse)
 		else
 		{
 			printf("ft_ls: illegal option -- %c\n", parse[i]);
-			printf("usage: ft_ls [-Ralrt] [file ...]\n");
+			printf("usage: ft_ls [-%s] [file ...]\n", LS_FLAGS);
 			return (0);
 		}
 		i++;
