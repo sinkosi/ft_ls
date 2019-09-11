@@ -136,6 +136,57 @@ SRC :=		ft_islower.c	\
 		  ft_arraydup.c		\
 		  get_next_line.c	\
 		  ft_atoi_base.c	\
+		  ft_convert.c		\
+		  ft_error.c			\
+		  ft_flag_check.c		\
+		  ft_flag_hash.c		\
+		  ft_flag_plus.c		\
+		  ft_flag_precision.c	\
+		  ft_flag_reset.c		\
+		  ft_flag_space.c		\
+		  ft_flag_set.c			\
+		  ft_flag_size.c		\
+		  ft_flag_width.c		\
+		  ft_handler_b_binary.c	\
+		  ft_handler_b_binary_fd.c	\
+		  ft_handler_c_char.c	\
+		  ft_handler_d_int.c	\
+		  ft_handler_d_int_fd.c	\
+		  ft_handler_o_octal.c	\
+		  ft_handler_o_octal_fd.c	\
+		  ft_handler_p_pointer.c\
+		  ft_handler_s_str.c	\
+		  ft_handler_u_unsigned_int.c	\
+		  ft_handler_u_unsigned_int_fd.c	\
+		  ft_handler_x_hexadecimal.c	\
+		  ft_handler_x_hexadecimal_fd.c	\
+		  ft_handler_f_float.c	\
+		  ft_handler_f_float_fd.c		\
+		  ft_handler_convert.c			\
+		  ft_print_b_binary.c	\
+		  ft_print_c_char.c		\
+		  ft_print_d_int.c		\
+		  ft_printf.c			\
+		  ft_print_mod.c		\
+		  ft_print_f_float.c	\
+		  ft_print_f_float_fd.c	\
+		  ft_print_lf_float.c	\
+		  ft_print_o_octal.c	\
+		  ft_print_out.c		\
+		  ft_print_p_pointer.c	\
+		  ft_print_s_str.c		\
+		  ft_print_ws_str.c		\
+		  ft_print_u_unsigned_int.c	\
+		  ft_print_x_hexadecimal.c	\
+		  ft_ltoa_printf.c		\
+		  ft_ltoa_base.c		\
+		  ft_ultoa_printf.c		\
+		  ft_putwchar.c			\
+		  ft_putwchar_fd.c		\
+		  ft_putwstr.c			\
+		  ft_putwstr_fd.c		\
+		  ft_power_ten.c		\
+		  ft_round_bool.c		
 #ADD SOURCE FILES HERE ^^^
 OBJ := $(addprefix $(OBJ_DIR)/, $(SRC:%.c=%.o))
 ################################################################################
