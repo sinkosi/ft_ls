@@ -63,7 +63,7 @@ LIBFT_H		= -I ./$(LIBFT_PATH)/includes/
 #################################
 SRCS_NAME	=	ft_dir_strcmp.c		\
 				ft_flag_recursive.c	\
-				ft_flag_set.c		\
+				ft_ls_flag_set.c	\
 				ft_get_time.c		\
 				ft_get_user.c		\
 				ft_list_run.c		\

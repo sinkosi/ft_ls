@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-size_t	ft_numlen(int n)
+size_t	ft_numlen(intmax_t n)
 {
 	size_t	i;
 

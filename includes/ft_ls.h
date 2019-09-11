@@ -83,7 +83,7 @@ void				ft_flag_init(t_ls_flags *ft_ls);
 **		value from 0 to 1. If an invalid char is provided then it will output
 **		that an error has occured and the flag parsed is invalid.
 */
-int				ft_flag_set(t_ls_flags *ft_ls, char *parse);
+int				ft_ls_flag_set(t_ls_flags *ft_ls, char *parse);
 
 void				ft_flag_recursive(t_dir *list, t_ls_flags *my_ls);
 

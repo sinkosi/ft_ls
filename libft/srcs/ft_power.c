@@ -12,16 +12,19 @@
 
 #include "libft.h"
 
-int	ft_power(int nb, int power)
+intmax_t	ft_power(intmax_t nb, int power)
 {
+	intmax_t my_power;
+
+	my_power = nb;
 	if (power < 0)
 		return (-1);
 	else if (power == 0)
 		return (1);
 	while (power > 1 && (ft_isimax(nb) == 0))
 	{
-		nb *= nb;
+		my_power *= nb;
 		power--;
 	}
-	return (nb);
+	return (my_power);
 }
