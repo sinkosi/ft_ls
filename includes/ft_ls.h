@@ -6,23 +6,20 @@
 /*   By: sinkosi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/09 14:33:39 by sinkosi           #+#    #+#             */
-/*   Updated: 2019/09/01 13:11:16 by sinkosi          ###   ########.fr       */
+/*   Updated: 2019/09/11 10:33:52 by sinkosi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_LS_H
 # define FT_LS_H
-# include "../libft/includes/libft.h"
 
+# include "../libft/includes/libft.h"
 # include <dirent.h>
 # include <sys/stat.h>
-# include <stdio.h>
 # include <sys/types.h>
-//# include <sys/acl.h>
 # include <sys/xattr.h>
 # include <pwd.h>
 # include <grp.h>
-//# include <uuid/uuid.h>
 # include <errno.h>
 # include <time.h>
 
@@ -83,7 +80,7 @@ void				ft_flag_init(t_ls_flags *ft_ls);
 **		value from 0 to 1. If an invalid char is provided then it will output
 **		that an error has occured and the flag parsed is invalid.
 */
-int				ft_ls_flag_set(t_ls_flags *ft_ls, char *parse);
+int					ft_ls_flag_set(t_ls_flags *ft_ls, char *parse);
 
 void				ft_flag_recursive(t_dir *list, t_ls_flags *my_ls);
 
@@ -140,5 +137,6 @@ void				ft_ls(t_ls_flags *my_ls);
 void				ft_dir_current(int argc, char **argv,
 		struct dirent *attr);
 
-size_t  ft_ls_strlen(t_dir *list);//, struct stat ft_stat);s
+size_t				ft_ls_strlen(t_dir *list);
+
 #endif

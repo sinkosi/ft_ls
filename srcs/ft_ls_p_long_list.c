@@ -6,7 +6,7 @@
 /*   By: sinkosi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/01 13:58:07 by sinkosi           #+#    #+#             */
-/*   Updated: 2019/09/01 13:58:17 by sinkosi          ###   ########.fr       */
+/*   Updated: 2019/09/11 11:20:30 by sinkosi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	ft_ls_p_long_list(t_dir *list)
 
 	temp = list;
 	i = ft_ls_strlen(temp);
-	printf("%d\n", i);
 	while (temp != NULL)
 	{
 		lstat(temp->path, &fstat);
@@ -30,10 +29,9 @@ void	ft_ls_p_long_list(t_dir *list)
 		ft_putnbr(fstat.st_nlink);
 		ft_putstr(" ");
 		ft_putstr(ft_get_user(fstat));
-		//i = 6;
 		bytes = ft_itoa(fstat.st_size);
-		len = i;//ft_strlen(bytes);
-		while (len-- > ft_strlen(bytes))//(i-- > len)
+		len = i;
+		while (len-- > ft_strlen(bytes))
 			ft_putchar(' ');
 		ft_putstr(ft_strjoin(bytes, " "));
 		ft_get_time(fstat, temp);

@@ -6,18 +6,33 @@
 /*   By: sinkosi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/01 13:15:26 by sinkosi           #+#    #+#             */
-/*   Updated: 2019/09/01 13:15:29 by sinkosi          ###   ########.fr       */
+/*   Updated: 2019/09/11 11:35:42 by sinkosi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_ls.h"
 
-void	ft_ls_print(t_dir *my_ls, t_ls_flags *my_ls_flags, char *path)
+static void	ft_print_dir(t_dir *my_ls)
 {
 	t_dir	*temp;
 	int		i;
 
+	temp = my_ls;
 	i = 0;
+	while (temp != NULL)
+	{
+		ft_putstr(temp->dir);
+		i++;
+		temp = temp->next;
+		if (temp != NULL && (i % 8 != 0))
+			ft_putstr("  ");
+		else if (temp != NULL && (i % 8 == 0))
+			ft_putchar('\n');
+	}
+}
+
+void		ft_ls_print(t_dir *my_ls, t_ls_flags *my_ls_flags, char *path)
+{
 	if (my_ls_flags->flag_t == 1)
 		ft_sort_list(&my_ls, ft_time_cmp, 0);
 	if (my_ls_flags->flag_r == 1)
@@ -27,19 +42,7 @@ void	ft_ls_print(t_dir *my_ls, t_ls_flags *my_ls_flags, char *path)
 	if (my_ls_flags->flag_l == 1)
 		ft_ls_p_long_list(my_ls);
 	else
-	{
-		temp = my_ls;
-		while (temp != NULL)
-		{
-			ft_putstr(temp->dir);
-			i++;
-			temp = temp->next;
-			if (temp != NULL && (i % 8 != 0))
-				ft_putstr("  ");
-			else if (temp != NULL && (i % 8 == 0))
-				ft_putchar('\n');
-		}
-	}
+		ft_print_dir(my_ls);
 	ft_putchar('\n');
 	if (my_ls_flags->flag_recursive == 1)
 		ft_flag_recursive(my_ls, my_ls_flags);
