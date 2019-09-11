@@ -23,7 +23,7 @@ int		ft_strchr_bool(const char *s, int c)
 	str = (char *)s;
 	if (ft_isascii(c) == 0)
 		return (0);
-	while (str[i] != c && str[i] != '\0')
+	while (str[i] != '\0')
 	{
 		if (str[i] == c)
 			return (1);
