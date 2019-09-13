@@ -20,7 +20,7 @@ void	ft_get_time(struct stat fstat, t_dir *temp)
 	size_t	len;
 
 	(void)fstat;
-	str = ctime(temp->ft_time);
+	str = ctime(&temp->ft_time);
 	ft_memcpy(t_fmt, &str[4], 12);
 	t_fmt[12] = '\0';
 	ft_printf("%s %s", t_fmt, temp->dir);

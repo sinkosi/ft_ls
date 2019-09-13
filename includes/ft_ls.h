@@ -29,7 +29,7 @@ typedef struct		s_dir
 {
 	char			*dir;
 	char			*path;
-	time_t			*ft_time;
+	time_t			ft_time;
 	int				ft_is_dir;
 	struct s_dir	*next;
 }					t_dir;
