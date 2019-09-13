@@ -39,8 +39,8 @@ void		ft_ls_print(t_dir *my_ls, t_ls_flags *my_ls_flags, char *path)
 		ft_rev_list(&my_ls);
 	if (my_ls_flags->flag_recursive == 1)
 		ft_printf("%s", ft_strjoin(path, ":\n"));
-	if (my_ls_flags->flag_l == 1)
-		ft_ls_p_long_list(my_ls);
+	if (my_ls_flags->flag_l == 1 || my_ls_flags->flag_g == 1)
+		ft_ls_p_long_list(my_ls, my_ls_flags);
 	else
 		ft_print_dir(my_ls);
 	ft_putchar('\n');

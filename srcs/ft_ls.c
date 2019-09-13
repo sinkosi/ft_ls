@@ -27,7 +27,7 @@ int	main(int argc, char **argv)
 			temp->dir = argv[i];
 			temp->next = my_ls.dir_list;
 			my_ls.dir_list = temp;
-			ft_printf("ft_ls: %s: No such file or directory");
+			ft_printf("ft_ls: %s: No such file or directory\n", argv[i]);
 			/*ft_putstr("ft_ls: ");
 			ft_putstr(argv[i]);
 			ft_putendl(": No such file or directory");*/

@@ -63,6 +63,8 @@ int			ft_ls_flag_set(t_ls_flags *ft_ls, char *parse)
 			ft_ls->flag_r = 1;
 		else if (parse[i] == 't')
 			ft_ls->flag_t = 1;
+		else if (parse[i] == 'g')
+			ft_ls->flag_g = 1;
 		else if (ft_strcmp(parse + i, "-help") == 0)
 			return (ft_help_call(parse + i));
 		else if (parse[i] == '-' && parse[i + 1] != '\0'

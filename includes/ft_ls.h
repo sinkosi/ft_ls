@@ -52,6 +52,7 @@ typedef struct		s_ls_flags
 {
 	int				flag_recursive;
 	int				flag_a;
+	int				flag_g;
 	int				flag_l;
 	int				flag_r;
 	int				flag_t;
@@ -84,7 +85,7 @@ int					ft_ls_flag_set(t_ls_flags *ft_ls, char *parse);
 
 void				ft_flag_recursive(t_dir *list, t_ls_flags *my_ls);
 
-char				*ft_get_user(struct stat fstat);
+char				*ft_get_user(struct stat fstat, t_ls_flags *my_flags);
 
 /*
 ** FT_D
@@ -101,7 +102,7 @@ void				ft_ls_p_permission(t_dir *ft_ls,
 		struct stat ft_ls_stat);
 void				ft_ls_p_groupname(char *str);
 
-void				ft_ls_p_long_list(t_dir *list);
+void				ft_ls_p_long_list(t_dir *my_ls, t_ls_flags *my_flags);
 
 /*
 ** ************************************************************************	*

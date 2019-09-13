@@ -12,7 +12,7 @@
 
 #include "../includes/ft_ls.h"
 
-char	*ft_get_user(struct stat fstat)
+char	*ft_get_user(struct stat fstat, t_ls_flags *my_flags)
 {
 	char			*str;
 	struct passwd	*pw;
@@ -20,6 +20,12 @@ char	*ft_get_user(struct stat fstat)
 
 	pw = getpwuid(fstat.st_uid);
 	gr = getgrgid(fstat.st_gid);
-	str = ft_strjoin(ft_strjoin(pw->pw_name, " "), gr->gr_name);
+	if (my_flags->flag_l == 1)
+	{
+		str = ft_strjoin(ft_strjoin(pw->pw_name, " "), gr->gr_name);
+		my_flags->flag_g = 0;
+	}
+	else if (my_flags->flag_g == 1)
+		str = gr->gr_name;
 	return (ft_strjoin(str, " "));
 }
