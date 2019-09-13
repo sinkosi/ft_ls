@@ -23,9 +23,10 @@ void	ft_get_time(struct stat fstat, t_dir *temp)
 	str = ctime(temp->ft_time);
 	ft_memcpy(t_fmt, &str[4], 12);
 	t_fmt[12] = '\0';
-	ft_putstr(t_fmt);
+	ft_printf("%s %s", t_fmt, temp->dir);
+	/*ft_putstr(t_fmt);
 	ft_putchar(' ');
-	ft_putstr(temp->dir);
+	ft_putstr(temp->dir);*/
 	if (S_ISLNK(fstat.st_mode))
 	{
 		ft_putstr(" -> ");

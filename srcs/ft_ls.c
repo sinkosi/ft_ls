@@ -15,28 +15,29 @@
 int	main(int argc, char **argv)
 {
 	int			i;
-	t_ls_flags	e;
+	t_ls_flags	my_ls;
 	t_dir		*temp;
 
 	i = 1;
-	e.dir_list = NULL;
+	my_ls.dir_list = NULL;
 	while (i < argc)
 	{
 		if (argv[i][0] != '-' && (temp = (t_dir *)malloc(sizeof(t_dir))))
 		{
 			temp->dir = argv[i];
-			temp->next = e.dir_list;
-			e.dir_list = temp;
-			ft_putstr("ft_ls: ");
+			temp->next = my_ls.dir_list;
+			my_ls.dir_list = temp;
+			ft_printf("ft_ls: %s: No such file or directory");
+			/*ft_putstr("ft_ls: ");
 			ft_putstr(argv[i]);
-			ft_putendl(": No such file or directory");
+			ft_putendl(": No such file or directory");*/
 		}
-		else if (ft_ls_flag_set(&e, argv[i]) == 0)
+		else if (ft_ls_flag_set(&my_ls, argv[i]) == 0)
 			return (0);
 		i++;
 	}
-	if (e.dir_list == NULL)
-		do_list(&e);
-	ft_ls(&e);
+	if (my_ls.dir_list == NULL)
+		do_list(&my_ls);
+	ft_ls(&my_ls);
 	return (0);
 }
