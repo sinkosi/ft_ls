@@ -56,6 +56,7 @@ typedef struct		s_ls_flags
 	int				flag_l;
 	int				flag_r;
 	int				flag_t;
+	int				flag_u;
 	char			*path;
 	DIR				*dir_path;
 	struct dirent	*dirent_dir;
