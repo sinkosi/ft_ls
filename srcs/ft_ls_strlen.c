@@ -24,7 +24,7 @@ size_t		ft_ls_strlen(t_dir *list)
 	while (temp != NULL)
 	{
 		lstat(temp->path, &ft_stat);
-		str = ft_itoa(ft_stat.st_size);
+		str = ft_ltoa_base(ft_stat.st_size, 10);
 		if (ft_strlen(str) > len)
 			len = ft_strlen(str);
 		temp = temp->next;

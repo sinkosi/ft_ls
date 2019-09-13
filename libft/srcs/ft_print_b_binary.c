@@ -12,34 +12,18 @@
 
 #include "../includes/libft.h"
 
-void	ft_print_b_binary(t_printf *my_printf, uintmax_t n)
+void	ft_print_b_binary(t_printf *my_printf, uintmax_t n, int fd)
 {
 	char *str;
 
-	str = ft_itoa_base(n, 2);
+	str = ft_ltoa_base(n, 2);
 	ft_flag_size(my_printf, ft_strlen(str));
-	ft_flag_width(my_printf);
-	ft_flag_precision(my_printf, str);
-	my_printf->f_return += ft_strlen(str);
-	ft_putstr(str);
-	if (my_printf->flag_minus == 2 && my_printf->prec_width == 0)
-		my_printf->field_width -= 1;
-	ft_flag_width(my_printf);
-	ft_strdel(&str);
-}
-
-void	ft_print_b_binary_fd(t_printf *my_printf, uintmax_t n, int fd)
-{
-	char *str;
-
-	str = ft_itoa_base(n, 2);
-	ft_flag_size(my_printf, ft_strlen(str));
-	ft_flag_width_fd(my_printf, fd);
-	ft_flag_precision_fd(my_printf, str, fd);
+	ft_flag_width(my_printf, fd);
+	ft_flag_precision(my_printf, str, fd);
 	my_printf->f_return += ft_strlen(str);
 	ft_putstr_fd(str, fd);
 	if (my_printf->flag_minus == 2 && my_printf->prec_width == 0)
 		my_printf->field_width -= 1;
-	ft_flag_width_fd(my_printf, fd);
+	ft_flag_width(my_printf, fd);
 	ft_strdel(&str);
 }

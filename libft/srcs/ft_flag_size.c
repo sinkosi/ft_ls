@@ -24,7 +24,7 @@ void	ft_flag_size(t_printf *my_printf, size_t len)
 		my_printf->field_width -= 1;
 	if (my_printf->flag_plus != 0 && (c == 'i' || c == 'd'))
 		my_printf->field_width -= 1;
-	if ((my_printf->precision == 1 && my_printf->prec_width > 0) &&
+	if ((my_printf->prec_width > 0) &&
 		((c == 'i' || c == 'd' || c == 'x' || c == 'X' || c == 'o')
 		|| c == 'O' || c == 'p' || c == 'u' || c == 'U'))
 		my_printf->field_width -= my_printf->prec_width;

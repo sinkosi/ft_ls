@@ -20,16 +20,7 @@
 **		return value.
 */
 
-void	ft_flag_space(t_printf *my_printf)
-{
-	if (my_printf->flag_space == 1 && my_printf->flag_plus == 0)
-	{
-		ft_putchar(' ');
-		my_printf->f_return += 1;
-	}
-}
-
-void	ft_flag_space_fd(t_printf *my_printf, int fd)
+void	ft_flag_space(t_printf *my_printf, int fd)
 {
 	if (my_printf->flag_space == 1 && my_printf->flag_plus == 0)
 	{

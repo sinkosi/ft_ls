@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_x_hexadecimal2.c                          :+:      :+:    :+:   */
+/*   ft_print_f_float_fd.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sinkosi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/28 11:32:34 by sinkosi           #+#    #+#             */
-/*   Updated: 2019/08/30 15:02:45 by sinkosi          ###   ########.fr       */
+/*   Created: 2019/09/02 14:16:36 by sinkosi           #+#    #+#             */
+/*   Updated: 2019/09/02 14:16:43 by sinkosi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-static void	ft_size_significand(t_printf *my_printf, char *str)
+static void	ft_size_significand(t_printf *my_printf, char *str, int fd)
 {
 	ft_flag_size(my_printf, ft_strlen(str));
 	if (my_printf->flag_minus == 0 && my_printf->flag_zero == 0
 		&& my_printf->flag_hash == 1)
-		ft_flag_width(my_printf);
+		ft_flag_width(my_printf, fd);
 }
 
-static void	ft_size_mantissa(t_printf *my_printf, char *str)
+static void	ft_size_mantissa(t_printf *my_printf, char *str, int fd)
 {
 	ft_flag_size(my_printf, ft_strlen(str));
 	if (my_printf->flag_minus == 0 && my_printf->flag_zero == 0
 		&& my_printf->flag_hash == 1)
-		ft_flag_width(my_printf);
+		ft_flag_width(my_printf, fd);
 }
 
-void		ft_print_f_float(t_printf *my_printf, double n)
+void		ft_print_f_float(t_printf *my_printf, double n, int fd)
 {
 	char		*str;
 	char		*mantissa;
@@ -41,17 +41,17 @@ void		ft_print_f_float(t_printf *my_printf, double n)
 		my_printf->prec_width = 6;
 	a = ft_power_ten(ft_fabs(n), my_printf->prec_width);
 	mantissa = ft_ltoa_base(a, 10);
-	ft_size_significand(my_printf, str);
-	ft_size_mantissa(my_printf, mantissa);
-	ft_flag_width(my_printf);
-	ft_putstr(str);
+	ft_size_significand(my_printf, str, fd);
+	ft_size_mantissa(my_printf, mantissa, fd);
+	ft_flag_width(my_printf, fd);
+	ft_putstr_fd(str, fd);
 	my_printf->f_return += ft_strlen(str);
-	ft_putstr(".");
+	ft_putstr_fd(".", fd);
 	my_printf->f_return += 1;
-	ft_putstr(mantissa);
+	ft_putstr_fd(mantissa, fd);
 	my_printf->f_return += ft_strlen(mantissa);
 	if (my_printf->field_width > 0)
-		ft_flag_width(my_printf);
+		ft_flag_width(my_printf, fd);
 	ft_strdel(&str);
 	ft_strdel(&mantissa);
 }

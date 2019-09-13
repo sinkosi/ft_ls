@@ -14,11 +14,12 @@
 
 void	ft_putstr(const char *s)
 {
-	if (s == NULL)
+	/*if (s == NULL)
 		write(1, "NULL", 4);
 	else
 	{
 		while (*s)
 			write(1, s++, 1);
-	}
+	}*/
+	ft_putstr_fd(s, 1);
 }

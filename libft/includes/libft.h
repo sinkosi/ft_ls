@@ -178,7 +178,6 @@ typedef struct	s_printf
 	int			flag_zero;
 	int			field_width;
 	int			f_return;
-	int			precision;
 	int			prec_width;
 	int			i;
 	int			h;
@@ -1200,11 +1199,11 @@ void			ft_flag_size(t_printf *my_printf, size_t str_size);
 /*
 ** FT_FLAG_WIDTH -
 */
-void			ft_flag_width(t_printf *my_printf);
-void			ft_flag_precision(t_printf *my_printf, char *str);
-void			ft_flag_plus(t_printf *my_printf);
-void			ft_flag_hash(t_printf *my_printf, char *str);
-void			ft_flag_space(t_printf *my_printf);
+void			ft_flag_width(t_printf *my_printf, int fd);
+void			ft_flag_precision(t_printf *my_printf, char *str, int fd);
+void			ft_flag_plus(t_printf *my_printf, int fd);
+void			ft_flag_hash(t_printf *my_printf, char *str, int fd);
+void			ft_flag_space(t_printf *my_printf, int fd);
 
 /*
 ** ************************************************************************	*
@@ -1217,14 +1216,14 @@ void			ft_flag_space(t_printf *my_printf);
 **		the input into ft_printf and handles the char and only the char leaving
 **		the string remainder on 0++;
 */
-void			ft_handler_c_char(t_printf *my_printf, va_list printf_list);
+void			ft_handler_c_char(t_printf *my_printf, va_list printf_list, int fd);
 
 /*
 ** FT_HANDLER_D_INT - This is the handler for parsing integers. The function
 **		does not only look at data types of type 'int' only. It will look for
 **		integers of type char to type size_t.
 */
-void			ft_handler_d_int(t_printf *my_printf, va_list printf_list);
+void			ft_handler_d_int(t_printf *my_printf, va_list printf_list, int fd);
 
 /*
 ** FT_HANDLER_E_EXPONENT - This function has not been made.
@@ -1236,32 +1235,32 @@ void			ft_handler_e_exponent(t_printf *my_printf, va_list printf_list);
 **		The standard number is parsed as a Double or a LONG Double. The
 **		handler parses the %f character with Flags such as l, ll or L & j.
 */
-void			ft_handler_f_float(t_printf *my_printf, va_list printf_list);
+void			ft_handler_f_float(t_printf *my_printf, va_list printf_list, int fd);
 /*
 ** FT_HANDLER_O_OCTAL - This is the handler for octal strings. The function
 **		does not work with (ft_flag_hash), this function works with the %o
 **		conversion method. Check ft_flag_hash for prefix on octal.
 */
-void			ft_handler_o_octal(t_printf *my_printf, va_list printf_list);
+void			ft_handler_o_octal(t_printf *my_printf, va_list printf_list, int fd);
 /*
 ** FT_HANDLER_B_BINARY - This is the handler for binary strings. The function
 **		will wait for a %B or %b flag and convert the base 10 input to base 2.
 **		Conversion takes places using a form of *toa_base.
 */
-void			ft_handler_b_binary(t_printf *my_printf, va_list printf_list);
+void			ft_handler_b_binary(t_printf *my_printf, va_list printf_list, int fd);
 /*
 ** FT_HANDLER_S_STR - This is the handler for strings, either with variables
 **		or strings declared in the VA_LIST itself. The function uses a
 **		ft_putstr from Libft, and updates the return using FT_STRLEN.
 */
-void			ft_handler_s_str(t_printf *my_printf, va_list printf_list);
+void			ft_handler_s_str(t_printf *my_printf, va_list printf_list, int fd);
 /*
 ** FT_HANDLER_U_UNSIGNED_INT - This is the handler for unsigned integers, it
 **		checks the variable in the VA_LIST, to pass it to the appropriate,
 **		print_handler, this is done by checking which flag is set or read.
 */
 void			ft_handler_u_unsigned_int(t_printf *my_printf,
-		va_list printf_list);
+		va_list printf_list, int fd);
 /*
 ** FT_HANDLER_X_HEXADECIMAL - This is the handler for the hexadecimal conversion
 **		and it will check the integer that is parsed to it and call the print
@@ -1269,7 +1268,7 @@ void			ft_handler_u_unsigned_int(t_printf *my_printf,
 **		lowercase output.
 */
 void			ft_handler_x_hexadecimal(t_printf *my_printf,
-		va_list printf_list);
+		va_list printf_list, int fd);
 
 /*
 ** FT_HANDLER_P_POINTER - This is the handler for printing out a pointer.
@@ -1277,14 +1276,14 @@ void			ft_handler_x_hexadecimal(t_printf *my_printf,
 **		is passed a data structure of type "(void *)", this is then cast
 **		explicity to a data type that may output to the standard output.
 */
-void			ft_handler_p_pointer(t_printf *my_printf, va_list printf_list);
+void			ft_handler_p_pointer(t_printf *my_printf, va_list printf_list, int fd);
 /*
 ** FT_HANDLER_CONVERT - This is one of the most imperative functions that exist
 **		within ft_printf. The purpose of this function is to obtain the identity
 **		of the format character. Upon obtaining this, the function calls the
 **		appropriate handler. i.e hexadecimal, octal, string, int etc.
 */
-void			ft_handler_convert(t_printf *my_printf, va_list printf_list);
+void			ft_handler_convert(t_printf *my_printf, va_list printf_list, int fd);
 
 /*
 ** ************************************************************************	*
@@ -1295,7 +1294,7 @@ void			ft_handler_convert(t_printf *my_printf, va_list printf_list);
 ** FT_PRINT_C_CHAR - This function will print a char as given or parsed by
 **		variable.
 */
-void			ft_print_c_char(t_printf *my_printf, int c);
+void			ft_print_c_char(t_printf *my_printf, int c, int fd);
 
 /*
 ** FT_PRINT_D_INT - This function will be called by the ft_handler_d_int
@@ -1303,7 +1302,7 @@ void			ft_print_c_char(t_printf *my_printf, int c);
 **		of the number. The integer is converted to a string prior to output
 **		occurring.
 */
-void			ft_print_d_int(t_printf *my_printf, intmax_t n);
+void			ft_print_d_int(t_printf *my_printf, intmax_t n, int fd);
 
 /*
 ** FT_PRINT_E_EXPONENT - This function has not been done.
@@ -1319,7 +1318,9 @@ void			ft_print_e_exponent(t_printf *my_printf, double n);
 **		with the radix as the seperator. It takes the length of the output
 **		and updates the value in the struct 'f_return'.
 */
-void			ft_print_f_float(t_printf *my_printf, double n);
+void			ft_print_f_float(t_printf *my_printf, double n, int fd);
+
+void			ft_print_lf_float(t_printf *my_printf, long double n, int fd);
 
 /*
 ** FT_PRINT_O_OCTAL - This function will be called by the ft_handler_o_octal
@@ -1328,9 +1329,9 @@ void			ft_print_f_float(t_printf *my_printf, double n);
 **		type string(char *) and update the return using the	FT_STRLEN of the
 **		string.
 */
-void			ft_print_o_octal(t_printf *my_printf, uintmax_t n);
+void			ft_print_o_octal(t_printf *my_printf, uintmax_t n, int fd);
 
-void			ft_print_b_binary(t_printf *my_printf, uintmax_t n);
+void			ft_print_b_binary(t_printf *my_printf, uintmax_t n, int fd);
 
 /*
 ** FT_PRINT_S_STR - This function will be called by the ft_handler_s_str
@@ -1340,28 +1341,26 @@ void			ft_print_b_binary(t_printf *my_printf, uintmax_t n);
 **		string (char *) to be truncated. The value F_RETURN contained in the
 **		struct is updated with the FT_STRLEN of the output string.
 */
-void			ft_print_s_str(t_printf *my_printf, char *str);
-void			ft_print_ws_str(t_printf *my_printf, wchar_t *str);
-void			ft_print_u_unsigned_int(t_printf *my_printf, uintmax_t n);
-void			ft_print_x_hexadecimal(t_printf *my_printf, uintmax_t n);
+void			ft_print_s_str(t_printf *my_printf, char *str, int fd);
+void			ft_print_ws_str(t_printf *my_printf, wchar_t *str, int fd);
+void			ft_print_u_unsigned_int(t_printf *my_printf, uintmax_t n, int fd);
+void			ft_print_x_hexadecimal(t_printf *my_printf, uintmax_t n, int fd);
 
-void			ft_print_p_pointer(t_printf *my_printf, void *pointer);
-void			ft_print_mod(t_printf *my_printf);
+void			ft_print_p_pointer(t_printf *my_printf, void *pointer, int fd);
+void			ft_print_mod(t_printf *my_printf, int fd);
 
 /*
 ** ********************************************************************
 */
-void			ft_print_out(t_printf *my_printf, char *str);
+void			ft_print_out(t_printf *my_printf, char *str, int fd);
 int				ft_printf(const char *format, ...);
 void			ft_flag_check(t_printf *my_printf);
-void			ft_convert(t_printf *my_printf, va_list printf_list, char *str);
-void			ft_flag_precision(t_printf *my_printf, char *str);
+void			ft_convert(t_printf *my_printf, va_list printf_list, char *str, int fd);
+void			ft_flag_precision(t_printf *my_printf, char *str, int fd);
 void			ft_flag_set(t_printf *my_printf, char *str);
 void			ft_flag_reset(t_printf *my_printf);
 void			ft_error(char *str);
 
-char			*ft_ltoa_printf(intmax_t nbr);
-char			*ft_ultoa(uintmax_t nbr, int base);
 char			*ft_ltoa_base(intmax_t value, int base);
 
 void			ft_putwchar(wchar_t wc);
@@ -1369,7 +1368,7 @@ void			ft_putwchar(wchar_t wc);
 void			ft_putwstr(wchar_t *wstr);
 
 intmax_t		ft_power_ten(double nb, int power);
-void			ft_print_lf_float(t_printf *my_printf, long double n);
+
 int				ft_round_bool(double nbr);
 
 /*
@@ -1380,54 +1379,5 @@ int				ft_round_bool(double nbr);
 
 void			ft_putwchar_fd(wchar_t wc, int fd);
 void			ft_putwstr_fd(wchar_t *wstr, int fd);
-void			ft_flag_hash_fd(t_printf *my_printf, char *str, int fd);
-void			ft_flag_plus_fd(t_printf *my_printf, int fd);
-void			ft_flag_precision_fd(t_printf *my_printf, char *str, int fd);
-void			ft_flag_space_fd(t_printf *my_printf, int fd);
-void			ft_flag_width_fd(t_printf *my_printf, int fd);
-void			ft_print_b_binary_fd(t_printf *my_printf, uintmax_t n,
-		int fd);
-void			ft_print_c_char_fd(t_printf *my_printf, int c, int fd);
-void			ft_print_d_int_fd(t_printf *my_printf, intmax_t n, int fd);
-void			ft_print_f_float_fd(t_printf *my_printf, double n, int fd);
-void			ft_print_lf_float_fd(t_printf *my_printf, long double n,
-		int fd);
-void			ft_print_mod_fd(t_printf *my_printf, int fd);
-void			ft_print_out_fd(t_printf *my_printf, char *str, int fd);
-void			ft_print_o_octal_fd(t_printf *my_printf, uintmax_t n, int fd);
-void			ft_print_p_pointer_fd(t_printf *my_printf, void *pointer,
-		int fd);
-void			ft_print_s_str_fd(t_printf *my_printf, char *str, int fd);
-void			ft_print_u_unsigned_int_fd(t_printf *my_printf, uintmax_t n,
-		int fd);
-void			ft_print_ws_str_fd(t_printf *my_printf, wchar_t *str, int fd);
-void			ft_print_x_hexadecimal_fd(t_printf *my_printf, uintmax_t n,
-		int fd);
-int				ft_dprintf(int fd, const char *parse_str, ...);
-void			ft_convert_fd(t_printf *my_printf, va_list printf_list,
-		char *str, int fd);
-void			ft_handler_convert_fd(t_printf *my_printf,
-		va_list printf_list, int fd);
-void			ft_handler_b_binary_fd(t_printf *my_printf,
-		va_list printf_list, int fd);
-void			ft_handler_c_char_fd(t_printf *my_printf, va_list printf_list,
-		int fd);
-void			ft_handler_d_int_fd(t_printf *my_printf, va_list printf_list,
-		int fd);
-void			ft_handler_f_float_fd(t_printf *my_printf,
-		va_list printf_list, int fd);
-
-void			ft_handler_o_octal_fd(t_printf *my_printf, va_list printf_list,
-		int fd);
-void			ft_handler_p_pointer_fd(t_printf *my_printf,
-		va_list printf_listi, int fd);
-void			ft_handler_s_str_fd(t_printf *my_printf, va_list printf_list,
-		int fd);
-void			ft_handler_x_hexadecimal_fd(t_printf *my_printf,
-		va_list printf_list, int fd);
-
-void			ft_handler_u_unsigned_int_fd(t_printf *my_printf,
-		va_list printf_list, int fd);
-
 
 #endif

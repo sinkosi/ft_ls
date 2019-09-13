@@ -14,7 +14,7 @@
 
 void	ft_putwstr(wchar_t *wstr)
 {
-	size_t	i;
+	/*size_t	i;
 	size_t	n;
 
 	i = 0;
@@ -22,6 +22,7 @@ void	ft_putwstr(wchar_t *wstr)
 	while (i < n)
 	{
 		ft_putwchar(wstr[i]);
-		i++;
-	}
+		i++;a
+	}*/
+	ft_putwstr_fd(wstr, 1);
 }

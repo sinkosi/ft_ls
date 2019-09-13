@@ -25,10 +25,10 @@ int	ft_printf(const char *parse_str, ...)
 		if (parse_str[my_printf.i] == '%' || parse_str[my_printf.i] == '\%')
 		{
 			my_printf.i += 1;
-			ft_convert(&my_printf, printf_list, (char *)parse_str);
+			ft_convert(&my_printf, printf_list, (char *)parse_str, 1);
 		}
 		else
-			ft_print_out(&my_printf, (char *)parse_str);
+			ft_print_out(&my_printf, (char *)parse_str, 1);
 	}
 	va_end(printf_list);
 	return (my_printf.f_return);
@@ -47,10 +47,10 @@ int	ft_dprintf(int fd, const char *parse_str, ...)
 		if (parse_str[my_printf.i] == '%' || parse_str[my_printf.i] == '\%')
 		{
 			my_printf.i += 1;
-			ft_convert_fd(&my_printf, printf_list, (char *)parse_str, fd);
+			ft_convert(&my_printf, printf_list, (char *)parse_str, fd);
 		}
 		else
-			ft_print_out_fd(&my_printf, (char *)parse_str, fd);
+			ft_print_out(&my_printf, (char *)parse_str, fd);
 	}
 	va_end(printf_list);
 	return (my_printf.f_return);

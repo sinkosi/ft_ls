@@ -16,28 +16,7 @@
 ** The purpose of this function is to be
 */
 
-void	ft_flag_precision(t_printf *my_printf, char *str)
-{
-	char	c;
-
-	c = my_printf->convert;
-	if ((str[0] != '0') && (my_printf->prec_width < 0) &&
-			(my_printf->flag_hash == 1) && ((c == 'o') || (c == 'O')))
-	{
-		ft_putchar('0');
-		my_printf->f_return += 1;
-	}
-	if (c == 'i' || c == 'd' || c == 'x' || c == 'X' || c == 'o' ||
-			c == 'p' || c == 'u' || c == 'U')
-		while (my_printf->prec_width > 0)
-		{
-			ft_putchar('0');
-			my_printf->prec_width -= 1;
-			my_printf->f_return += 1;
-		}
-}
-
-void	ft_flag_precision_fd(t_printf *my_printf, char *str, int fd)
+void	ft_flag_precision(t_printf *my_printf, char *str, int fd)
 {
 	char	c;
 

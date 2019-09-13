@@ -12,20 +12,11 @@
 
 #include "../includes/libft.h"
 
-void	ft_print_mod(t_printf *my_printf)
+void	ft_print_mod(t_printf *my_printf, int fd)
 {
 	ft_flag_size(my_printf, 1);
-	ft_flag_width(my_printf);
-	ft_putchar('%');
-	ft_flag_width(my_printf);
-	my_printf->f_return += 1;
-}
-
-void	ft_print_mod_fd(t_printf *my_printf, int fd)
-{
-	ft_flag_size(my_printf, 1);
-	ft_flag_width_fd(my_printf, fd);
+	ft_flag_width(my_printf, fd);
 	ft_putchar_fd('%', fd);
-	ft_flag_width_fd(my_printf, fd);
+	ft_flag_width(my_printf, fd);
 	my_printf->f_return += 1;
 }

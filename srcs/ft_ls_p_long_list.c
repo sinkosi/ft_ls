@@ -26,10 +26,10 @@ void	ft_ls_p_long_list(t_dir *list)
 	{
 		lstat(temp->path, &fstat);
 		ft_ls_p_permission(temp, fstat);
-		ft_putnbr(fstat.st_nlink);
+		ft_printf("%d", fstat.st_nlink);
 		ft_putstr(" ");
 		ft_putstr(ft_get_user(fstat));
-		bytes = ft_itoa(fstat.st_size);
+		bytes = ft_ltoa_base(fstat.st_size, 10);
 		len = i;
 		while (len-- > ft_strlen(bytes))
 			ft_putchar(' ');

@@ -12,34 +12,7 @@
 
 #include "../includes/libft.h"
 
-void	ft_print_p_pointer(t_printf *my_printf, void *pointer)
-{
-	char	*str;
-
-	str = ft_ltoa_base((intmax_t)pointer, 16);
-	ft_flag_size(my_printf, ft_strlen(str));
-	my_printf->field_width -= 2;
-	if (my_printf->convert == 'p')
-	{
-		ft_putstr("0x");
-		my_printf->f_return += 2;
-	}
-	ft_flag_width(my_printf);
-	if (my_printf->convert == 'P')
-	{
-		ft_putstr("0X");
-		my_printf->f_return += 2;
-	}
-	ft_flag_precision(my_printf, str);
-	if (my_printf->convert == 'p')
-		str = ft_strlowcase(str);
-	ft_putstr(str);
-	my_printf->f_return += ft_strlen(str);
-	ft_flag_width(my_printf);
-	ft_strdel(&str);
-}
-
-void	ft_print_p_pointer_fd(t_printf *my_printf, void *pointer, int fd)
+void	ft_print_p_pointer(t_printf *my_printf, void *pointer, int fd)
 {
 	char	*str;
 
@@ -51,17 +24,17 @@ void	ft_print_p_pointer_fd(t_printf *my_printf, void *pointer, int fd)
 		ft_putstr_fd("0x", fd);
 		my_printf->f_return += 2;
 	}
-	ft_flag_width_fd(my_printf, fd);
+	ft_flag_width(my_printf, fd);
 	if (my_printf->convert == 'P')
 	{
 		ft_putstr_fd("0X", fd);
 		my_printf->f_return += 2;
 	}
-	ft_flag_precision_fd(my_printf, str, fd);
+	ft_flag_precision(my_printf, str, fd);
 	if (my_printf->convert == 'p')
 		str = ft_strlowcase(str);
 	ft_putstr_fd(str, fd);
 	my_printf->f_return += ft_strlen(str);
-	ft_flag_width_fd(my_printf, fd);
+	ft_flag_width(my_printf, fd);
 	ft_strdel(&str);
 }

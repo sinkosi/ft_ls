@@ -14,8 +14,9 @@
 
 void	ft_putchar(char c)
 {
-	if (ft_isascii(c) == 0)
+	/*if (ft_isascii(c) == 0)
 		write(1, "", 1);
 	else
-		write(1, &c, 1);
+		write(1, &c, 1);*/
+	ft_putchar_fd(c, 1);
 }
