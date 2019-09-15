@@ -19,7 +19,7 @@ void	ft_handler_convert(t_printf *my_printf, va_list printf_list, int fd)
 		ft_handler_d_int(my_printf, printf_list, fd);
 	else if (my_printf->convert == 'c' || my_printf->convert == 'C')
 		ft_handler_c_char(my_printf, printf_list, fd);
-	else if (my_printf->convert == 'o' || my_printf->convert == 'O')
+	/*else if (my_printf->convert == 'o' || my_printf->convert == 'O')
 		ft_handler_o_octal(my_printf, printf_list, fd);
 	else if (my_printf->convert == 'b' || my_printf->convert == 'B')
 		ft_handler_b_binary(my_printf, printf_list, fd);
@@ -30,7 +30,7 @@ void	ft_handler_convert(t_printf *my_printf, va_list printf_list, int fd)
 	else if (my_printf->convert == 'f' || my_printf->convert == 'F')
 		ft_handler_f_float(my_printf, printf_list, fd);
 	else if (my_printf->convert == 'p' || my_printf->convert == 'P')
-		ft_handler_p_pointer(my_printf, printf_list, fd);
+		ft_handler_p_pointer(my_printf, printf_list, fd);*/
 	else if (my_printf->convert == 's' || my_printf->convert == 'S')
 		ft_handler_s_str(my_printf, printf_list, fd);
 	else if (my_printf->convert == '%' || my_printf->convert == '\%')

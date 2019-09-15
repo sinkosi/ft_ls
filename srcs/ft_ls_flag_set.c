@@ -32,17 +32,18 @@ static int	ft_help_call(char *str)
 	return (0);
 }
 
-static int	ft_ambiguous(char *str, int n)
+static int	ft_illegal(char *str, int n, int option)
 {
-	ft_printf("ft_ls: option '--%c' is ambiguous;\n", str[n + 1]);
-	ft_printf("Try 'ft_ls --help' for more information.\n");
-	return (0);
-}
-
-static int	ft_illegal(char *str, int n)
-{
-	ft_printf("ft_ls: illegal option -- %c\n", str[n]);
-	ft_printf("usage: ft_ls [-%s] [file ...]\n", LS_FLAGS);
+	if (option == 1)
+	{
+		ft_printf("ft_ls: illegal option -- %c\n", str[n]);
+		ft_printf("usage: ft_ls [-%s] [file ...]\n", LS_FLAGS);
+	}
+	else if (option == 2)
+	{
+		ft_printf("ft_ls: option '--%c' is ambiguous;\n", str[n + 1]);
+		ft_printf("Try 'ft_ls --help' for more information.\n");
+	}
 	return (0);
 }
 
@@ -71,9 +72,9 @@ int			ft_ls_flag_set(t_ls_flags *ft_ls, char *parse)
 			return (ft_help_call(parse + i));
 		else if (parse[i] == '-' && parse[i + 1] != '\0'
 			&& (ft_strchr_bool(LS_FLAGS, parse[i + 1]) == 1))
-			return (ft_ambiguous(parse, i));
+			return (ft_illegal(parse, i, 2));
 		else
-			return (ft_illegal(parse, i));
+			return (ft_illegal(parse, i, 1));
 		i++;
 	}
 	return (1);
