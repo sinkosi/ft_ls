@@ -31,7 +31,7 @@ void	ft_ls_p_long_list(t_dir *my_ls, t_ls_flags *my_flags)
 		len = i;
 		while (len-- > ft_strlen(bytes))
 			ft_putchar(' ');
-		ft_putstr(ft_strjoin(bytes, " "));
+		ft_printf("%s ", bytes);
 		ft_get_time(fstat, temp);
 		temp = temp->next;
 		if (temp != NULL)
