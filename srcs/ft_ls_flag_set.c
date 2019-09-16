@@ -79,6 +79,8 @@ int			ft_ls_flag_set(t_ls_flags *ft_ls, char *parse)
 			ft_ls->flag_g = 1;
 		else if (parse[i] == 'u')
 			ft_ls->flag_u = 1;
+		else if (parse[i] == 'c')
+			ft_ls->flag_c = 1;
 		else
 			return (ft_assist(parse, i));
 		i++;

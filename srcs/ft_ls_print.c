@@ -33,7 +33,7 @@ static void	ft_print_dir(t_dir *my_ls)
 
 void		ft_ls_print(t_dir *my_ls, t_ls_flags *my_ls_flags, char *path)
 {
-	if (my_ls_flags->flag_t == 1 || my_ls_flags->flag_u == 1)
+	if (my_ls_flags->flag_t == 1)// || my_ls_flags->flag_u == 1 || my_ls_flags->flag_c == 1)
 		ft_sort_list(&my_ls, ft_time_cmp, 0);
 	if (my_ls_flags->flag_r == 1)
 		ft_rev_list(&my_ls);

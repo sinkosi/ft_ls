@@ -26,7 +26,7 @@ void	ft_ls_p_long_list(t_dir *my_ls, t_ls_flags *my_flags)
 	{
 		lstat(temp->path, &fstat);
 		ft_ls_p_permission(temp, fstat);
-		ft_printf("%d %s", fstat.st_nlink, ft_get_user(fstat, my_flags));
+		ft_printf("%3d %s", fstat.st_nlink, ft_get_user(fstat, my_flags));
 		bytes = ft_ltoa_base(fstat.st_size, 10);
 		len = i;
 		while (len-- > ft_strlen(bytes))

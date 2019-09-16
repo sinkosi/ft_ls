@@ -23,7 +23,7 @@
 # include <errno.h>
 # include <time.h>
 
-# define LS_FLAGS "Ralrt"
+# define LS_FLAGS "Racglrtu"
 
 typedef struct		s_dir
 {
@@ -52,6 +52,7 @@ typedef struct		s_ls_flags
 {
 	int				flag_recursive;
 	int				flag_a;
+	int				flag_c;
 	int				flag_g;
 	int				flag_l;
 	int				flag_r;

@@ -32,6 +32,8 @@ void	ft_ls_run_op(t_ls_flags *my_ls, char *path)
 				temp->ft_time = my_ls->ft_ls_stat.st_mtime;
 				if (my_ls->flag_u == 1)
 					temp->ft_time = my_ls->ft_ls_stat.st_atime;
+				else if (my_ls->flag_c == 1)
+					temp->ft_time = my_ls->ft_ls_stat.st_ctime;
 				if (S_ISDIR(my_ls->ft_ls_stat.st_mode) == 1)
 					temp->ft_is_dir = 1;
 				temp->next = list;
