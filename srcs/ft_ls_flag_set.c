@@ -6,7 +6,7 @@
 /*   By: sinkosi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 10:54:44 by sinkosi           #+#    #+#             */
-/*   Updated: 2019/09/16 10:44:36 by sinkosi          ###   ########.fr       */
+/*   Updated: 2019/09/16 12:45:50 by sinkosi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static int	ft_illegal(char *str, int n, int option)
 	return (0);
 }
 
-int			ft_assist(char *parse, int i)
+static int	ft_assist(char *parse, int i)
 {
 	if (ft_strcmp(parse + i, "-help") == 0)
 		return (ft_help_call(parse + i));
@@ -56,6 +56,14 @@ int			ft_assist(char *parse, int i)
 		return (ft_illegal(parse, i, 2));
 	else
 		return (ft_illegal(parse, i, 1));
+}
+
+static void	ft_time_assist(t_ls_flags *ft_ls, char *parse, int i)
+{
+	if (parse[i] == 'u')
+		ft_ls->flag_u = 1;
+	else if (parse[i] == 'c')
+		ft_ls->flag_c = 1;
 }
 
 int			ft_ls_flag_set(t_ls_flags *ft_ls, char *parse)
@@ -77,10 +85,8 @@ int			ft_ls_flag_set(t_ls_flags *ft_ls, char *parse)
 			ft_ls->flag_t = 1;
 		else if (parse[i] == 'g')
 			ft_ls->flag_g = 1;
-		else if (parse[i] == 'u')
-			ft_ls->flag_u = 1;
-		else if (parse[i] == 'c')
-			ft_ls->flag_c = 1;
+		else if (parse[i] == 'c' || parse[i] == 'u')
+			ft_time_assist(ft_ls, parse, i);
 		else
 			return (ft_assist(parse, i));
 		i++;
