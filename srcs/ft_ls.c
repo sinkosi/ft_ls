@@ -6,7 +6,7 @@
 /*   By: sinkosi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/29 15:25:56 by sinkosi           #+#    #+#             */
-/*   Updated: 2019/09/01 13:18:58 by sinkosi          ###   ########.fr       */
+/*   Updated: 2019/09/16 10:32:05 by sinkosi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,6 @@ int	main(int argc, char **argv)
 			temp->next = my_ls.dir_list;
 			my_ls.dir_list = temp;
 			ft_printf("ft_ls: %s: No such file or directory\n", argv[i]);
-			/*ft_putstr("ft_ls: ");
-			ft_putstr(argv[i]);
-			ft_putendl(": No such file or directory");*/
 		}
 		else if (ft_ls_flag_set(&my_ls, argv[i]) == 0)
 			return (0);

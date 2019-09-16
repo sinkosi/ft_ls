@@ -6,7 +6,7 @@
 /*   By: sinkosi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/29 08:13:57 by sinkosi           #+#    #+#             */
-/*   Updated: 2019/06/05 10:55:45 by sinkosi          ###   ########.fr       */
+/*   Updated: 2019/09/16 10:30:27 by sinkosi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,5 @@
 
 void	ft_putstr(const char *s)
 {
-	/*if (s == NULL)
-		write(1, "NULL", 4);
-	else
-	{
-		while (*s)
-			write(1, s++, 1);
-	}*/
 	ft_putstr_fd(s, 1);
 }

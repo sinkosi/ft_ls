@@ -6,7 +6,7 @@
 /*   By: sinkosi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/28 10:39:22 by sinkosi           #+#    #+#             */
-/*   Updated: 2019/07/28 11:29:00 by sinkosi          ###   ########.fr       */
+/*   Updated: 2019/09/16 10:15:46 by sinkosi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	ft_flag_reset(t_printf *my_printf)
 	my_printf->flag_hash = 0;
 	my_printf->flag_zero = 0;
 	my_printf->field_width = 0;
-	//my_printf->precision = 0;
 	my_printf->prec_width = 0;
 	my_printf->h = 0;
 	my_printf->l = 0;

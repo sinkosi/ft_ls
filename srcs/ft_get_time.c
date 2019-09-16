@@ -6,7 +6,7 @@
 /*   By: sinkosi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/01 13:14:24 by sinkosi           #+#    #+#             */
-/*   Updated: 2019/09/01 14:12:52 by sinkosi          ###   ########.fr       */
+/*   Updated: 2019/09/16 10:33:17 by sinkosi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,6 @@ void	ft_get_time(struct stat fstat, t_dir *temp)
 	ft_memcpy(t_fmt, &str[4], 12);
 	t_fmt[12] = '\0';
 	ft_printf("%s %s", t_fmt, temp->dir);
-	/*ft_putstr(t_fmt);
-	ft_putchar(' ');
-	ft_putstr(temp->dir);*/
 	if (S_ISLNK(fstat.st_mode))
 	{
 		ft_putstr(" -> ");

@@ -6,7 +6,7 @@
 /*   By: sinkosi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 10:54:44 by sinkosi           #+#    #+#             */
-/*   Updated: 2019/09/11 11:16:11 by sinkosi          ###   ########.fr       */
+/*   Updated: 2019/09/16 10:44:36 by sinkosi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 static int	ft_help_call(char *str)
 {
 	ft_printf("Usage: ft_ls [OPTION]... [FILE]...\nList information about the");
-	ft_printf("FILEs (the current directory by default).\nSort entries");
+	ft_printf(" FILEs (the current directory by default).\nSort entries");
 	ft_printf(" alphabetically if none of -'t' is specified.\n\nMandatory");
-	ft_printf("	arguments to long options are mandatory for short options");
+	ft_printf("	arguments to long options are mandatory for short options ");
 	ft_printf("too.\n-a, --all	do not ignore entries starting with .\n");
 	ft_printf("-l		use a long listing format\n");
 	ft_printf("-r, --reverse	reverse order while sorting\n");
@@ -47,6 +47,17 @@ static int	ft_illegal(char *str, int n, int option)
 	return (0);
 }
 
+int			ft_assist(char *parse, int i)
+{
+	if (ft_strcmp(parse + i, "-help") == 0)
+		return (ft_help_call(parse + i));
+	else if (parse[i] == '-' && parse[i + 1] != '\0'
+		&& (ft_strchr_bool(LS_FLAGS, parse[i + 1]) == 1))
+		return (ft_illegal(parse, i, 2));
+	else
+		return (ft_illegal(parse, i, 1));
+}
+
 int			ft_ls_flag_set(t_ls_flags *ft_ls, char *parse)
 {
 	int		i;
@@ -68,13 +79,8 @@ int			ft_ls_flag_set(t_ls_flags *ft_ls, char *parse)
 			ft_ls->flag_g = 1;
 		else if (parse[i] == 'u')
 			ft_ls->flag_u = 1;
-		else if (ft_strcmp(parse + i, "-help") == 0)
-			return (ft_help_call(parse + i));
-		else if (parse[i] == '-' && parse[i + 1] != '\0'
-			&& (ft_strchr_bool(LS_FLAGS, parse[i + 1]) == 1))
-			return (ft_illegal(parse, i, 2));
 		else
-			return (ft_illegal(parse, i, 1));
+			return (ft_assist(parse, i));
 		i++;
 	}
 	return (1);

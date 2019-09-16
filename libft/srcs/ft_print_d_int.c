@@ -6,7 +6,7 @@
 /*   By: sinkosi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/28 09:47:16 by sinkosi           #+#    #+#             */
-/*   Updated: 2019/08/26 14:16:22 by sinkosi          ###   ########.fr       */
+/*   Updated: 2019/09/16 10:31:03 by sinkosi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_print_d_int(t_printf *my_printf, intmax_t n, int fd)
 	char	*str;
 
 	if (n < 0)
-	{	
+	{
 		my_printf->flag_plus = -1;
 		n *= -1;
 	}

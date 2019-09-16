@@ -6,7 +6,7 @@
 #    By: sinkosi <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/28 10:05:49 by sinkosi           #+#    #+#              #
-#    Updated: 2019/09/01 14:02:51 by sinkosi          ###   ########.fr        #
+#    Updated: 2019/09/16 10:09:24 by sinkosi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -99,6 +99,7 @@ $(NAME):	$(OBJ)
 		@ranlib $(NAME)
 		$(OUTPUT)
 		@clang -Wall -Wextra -Werror srcs/ft_ls.c libftls.a -o ft_ls
+		
 
 $(OBJ_PATH)/%.o: $(SRCS_PATH)/%.c
 	@mkdir	-p $(OBJ_PATH)
@@ -111,6 +112,7 @@ clean	:
 fclean	: clean
 	@make -C $(LIBFT_PATH)/ fclean
 	@/bin/rm -rf $(NAME)
+	@rm -rf ./ft_ls
 
 re:	fclean all
 
