@@ -36,5 +36,6 @@ int	main(int argc, char **argv)
 	if (my_ls.dir_list == NULL)
 		do_list(&my_ls);
 	ft_ls(&my_ls);
+	sleep(20);
 	return (0);
 }
