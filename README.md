@@ -38,9 +38,9 @@ the option -l isn’t in the arguments.
 • Append any flags that you may desire (see below for more), e.g ./ft_ls -Rl
 
 # SUPPORTED FLAGS
-**	-A - Shows all files (including hidden files), but doesn't show the "."
-**		and ".." directories. (Bonus)
-**	-G - Shows normal files, but adds colour. (Bonus) **
+-A - Shows all files (including hidden files), but doesn't show the "."
+		and ".." directories. (Bonus)
+*	-G - Shows normal files, but adds colour. (Bonus) **
 **	-R - Shows all files recursively.
 **	-a - Shows all files including "." and "..".
 **	-f - Shows normal files, unsorted. (Bonus)	**
