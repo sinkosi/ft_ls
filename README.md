@@ -49,3 +49,5 @@ the option -l isn’t in the arguments.
 *	-p - Adds a '/' to the back of directory names. (Bonus)	**
 *	-r - Reverses the output.
 *	-t - Sorts files according to time.
+
+# FINAL MARK - 103/100
